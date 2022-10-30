@@ -39,5 +39,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.listen(3001, console.log('app running'))
+app.listen(process.env.PORT || 3001, console.log('app running'))
 module.exports = app;

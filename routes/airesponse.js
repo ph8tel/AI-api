@@ -12,7 +12,7 @@ const openai = new OpenAIApi(configuration);
 
 function formQuestion(params) {
   
-  return `predict the likely  monthly cost range, from minimum to max, in us dollars for auto insurance for a ${params.carcost} car driven by a  ${params.age} year old ${params.sex} living in the US zip code ${params.zipcode}. The driver has a ${params.drivingrecord} driving record. ` 
+  return `predict the likely  monthly cost range, from minimum to max, in us dollars for auto insurance for a ${params.carcost} car, driven by a  ${params.age} year old ${params.sex}, with a ${params.drivingrecord} driving record, living in the US zip code ${params.zipcode}.` 
   //  return `what is the average monthly cost for auto insurance in Denver Colorado`
 }
 /* GET AI status */
