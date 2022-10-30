@@ -20,7 +20,7 @@ router.get('/',cors(), async function(req, res, next) {
   const response = await openai.createCompletion({
     model: "text-davinci-002",
     prompt: formQuestion(req.query),
-    temperature: 1,
+    temperature: 0.8,
     max_tokens: 200,
   }).catch( e => res.send(e))
   res.json({ choices: response.data.choices[0].text || null});
