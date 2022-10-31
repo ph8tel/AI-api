@@ -32,7 +32,10 @@ router.get('/chat', cors(), async function (req, res, next) {
     prompt: req.query.questiontext,
     temperature: 0.8,
     max_tokens: 200,
-  }).catch( e => res.send(e))
+  }).catch( e => {
+    console.log(e)
+    res.send(e)
+  })
   const jso = Ai.data.choices[0].text
   res.json({answer: jso})
 })
