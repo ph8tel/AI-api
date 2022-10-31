@@ -25,6 +25,16 @@ router.get('/',cors(), async function(req, res, next) {
   }).catch( e => res.send(e))
   res.json({ choices: response.data.choices[0].text || null});
 });
+router.get('/chat', cors(), async function (req, res) {
+  const Ai = await openai.createCompletion({
+    model: "text-davinci-002",
+    prompt: req.query.questiontext,
+    temperature: 0.8,
+    max_tokens: 200,
+  }).catch( e => res.send(e))
+  const jso = Ai.data.choices[0].text
+  res.json({answer: jso})
+})
 router.post('/', function(req, res, next){
   console.dir(req)
   res.json({"ok": true})
