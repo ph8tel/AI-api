@@ -25,7 +25,7 @@ router.get('/',cors(), async function(req, res, next) {
   }).catch( e => res.send(e))
   res.json({ choices: response.data.choices[0].text || null});
 });
-router.get('/chat', cors(), async function (req, res) {
+router.get('/chat', cors(), async function (req, res, next) {
   const Ai = await openai.createCompletion({
     model: "text-davinci-002",
     prompt: req.query.questiontext,
